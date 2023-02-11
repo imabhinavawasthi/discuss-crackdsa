@@ -1,12 +1,10 @@
 import PostFeed from '@components/PostFeed';
-import Metatags from '@components/Metatags';
 import TrendingPostFeed from '@components/TrendingPostFeed';
-import Post from './[username]/[slug]';
 
 export default function NewComp({ posts }) {
 
     const newPostArray = [];
-    posts.map(post => {
+    posts?.map(post => {
         if (!post?.trending) newPostArray.push(post);
     })
 
@@ -16,7 +14,7 @@ export default function NewComp({ posts }) {
             <main >
                 <div className='container '>
                     <h1 className='font-bold'>Latest Blog 🔥</h1>
-                    <div className='flex overflow-scroll '>
+                    <div className='flex overflow-x-scroll hide-scroll-bar'>
                         <TrendingPostFeed posts={posts} />
                     </div>
                     <br></br>
